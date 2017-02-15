@@ -51,6 +51,11 @@ def delete
   SqlRunner.run(sql)
 end
 
+def list_albums
+  sql = "SELECT * FROM albums WHERE artist_id = #{@artist_id}"
+  return SqlRunner.run(sql).map { |album| Album.new(album) }
+end
+
 
 
 
