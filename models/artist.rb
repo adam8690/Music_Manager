@@ -10,4 +10,31 @@ class Artist
     @artist_id = options['artist_id'].to_i
   end
 
+
+def save
+sql = "INSERT INTO artists (artist_name) VALUES ('#{@artist_name}') RETURNING *;"
+@artist_id = SqlRunner.run(sql)[0]['id'].to_i
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end
