@@ -16,6 +16,24 @@ sql = "INSERT INTO artists (artist_name) VALUES ('#{@artist_name}') RETURNING *;
 @artist_id = SqlRunner.run(sql)[0]['id'].to_i
 end
 
+# Trying to stop duplicate artists being entered into database with postgres. 
+
+# # INSERT INTO example_table
+# #     (id, name)
+# # SELECT 1, 'John'
+# # WHERE
+# #     NOT EXISTS (
+# #         SELECT id FROM example_table WHERE id = 1
+# #     );
+
+# def save
+# sql = "INSERT INTO artists (artist_name) VALUES ('#{@artist_name}') RETURNING * WHERE NOT EXISTS ();"
+# @artist_id = SqlRunner.run(sql)[0]['id'].to_i
+# end
+
+
+
+
 def self.all
 sql = "SELECT * FROM artists"
 returned_array = SqlRunner.run(sql)
@@ -28,7 +46,10 @@ def update
   SqlRunner.run(sql)
 end
 
-
+def delete
+  sql = "DELETE FROM artists WHERE id = #{@artist_id}"
+  SqlRunner.run(sql)
+end
 
 
 

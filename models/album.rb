@@ -16,5 +16,11 @@ sql = "INSERT INTO albums (album_name, artist_id) VALUES ('#{@album_name}', #{@a
 @album_id = SqlRunner.run(sql)[0]['id'].to_i
 end
 
+def self.all
+  sql = "SELECT * FROM albums"
+  returned_array = SqlRunner.run(sql)
+  mapped_array = returned_array.map {|album| Album.new(album) }
+  return mapped_array
+end
 
 end
