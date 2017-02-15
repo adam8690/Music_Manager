@@ -33,4 +33,10 @@ def delete
   SqlRunner.run(sql)
 end
 
+def show_artist
+  sql = "SELECT * FROM artists WHERE id = #{@artist_id}; "
+  returned_array = SqlRunner.run(sql)
+  return returned_array.map { |artist| Artist.new(artist) }
+end
+
 end
