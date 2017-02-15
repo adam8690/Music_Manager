@@ -23,4 +23,9 @@ def self.all
   return mapped_array
 end
 
+def update
+  sql = "UPDATE albums SET (album_name, artist_id) = ('#{@album_name}', #{@artist_id}) WHERE id = #{@album_id};"
+  SqlRunner.run(sql)
+end
+
 end
