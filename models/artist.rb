@@ -23,9 +23,10 @@ mapped_array = returned_array.map {|artist| Artist.new(artist) }
 return mapped_array
 end
 
-
-
-
+def update
+  sql = "UPDATE artists SET (artist_name) = ('#{@artist_name}') WHERE id = #{@artist_id};"
+  SqlRunner.run(sql)
+end
 
 
 

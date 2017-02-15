@@ -15,7 +15,5 @@ album2 = Album.new({'album_name' => 'Back in Black' , 'artist_id' => artist2.art
 album1.save
 album2.save
 
-
-
 binding.pry
 nil
