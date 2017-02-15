@@ -28,4 +28,9 @@ def update
   SqlRunner.run(sql)
 end
 
+def delete
+  sql = "DELETE FROM albums WHERE id = #{@album_id}"
+  SqlRunner.run(sql)
+end
+
 end
